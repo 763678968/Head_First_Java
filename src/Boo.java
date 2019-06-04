@@ -9,6 +9,7 @@ class SonOfBoo extends Boo {
         super("boo");
     }
 
+//
 //    public SonOfBoo(int i) {
 //        super("Fred");
 //    }
