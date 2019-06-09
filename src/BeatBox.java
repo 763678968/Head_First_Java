@@ -9,7 +9,7 @@ public class BeatBox {
     JPanel mainPanel;
     ArrayList<JCheckBox> checkboxList;
     Sequencer sequencer;
-    Sequencer sequence;
+    Sequence sequence;
     Track track;
     JFrame theFrame;
 
@@ -19,7 +19,7 @@ public class BeatBox {
     int[] instruments = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
 
     public static void main(String[] args) {
-        new BeatBox2().buildGUI();
+        new BeatBox().buildGUI();
     }
 
     public void buildGUI() {
@@ -134,14 +134,14 @@ public class BeatBox {
         }
     } // 关闭内部类
 
-    public class MyUpTempListener implements ActionListener {
+    public class MyUpTempoListener implements ActionListener {
         public void actionPerformed(ActionEvent a) {
             float tempoFactor = sequencer.getTempoFactor();
             sequencer.setTempoFactor((float)(tempoFactor * 1.03));
         }
     } // 关闭内部类
 
-    public class MyUpTempoListener implements ActionListener {
+    public class MyDownTempoListener implements ActionListener {
         public void actionPerformed(ActionEvent a) {
             float tempoFactor = sequencer.getTempoFactor();
             sequencer.setTempoFactor((float)(tempoFactor * .97));
