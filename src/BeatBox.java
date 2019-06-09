@@ -170,26 +170,3 @@ public class BeatBox {
         return event;
     }
 } // 关闭类
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
