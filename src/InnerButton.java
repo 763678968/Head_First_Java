@@ -17,14 +17,14 @@ public class InnerButton {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         b = new JButton("A");
-        b.addActionListener();
+        b.addActionListener(new BListener());
 
         frame.getContentPane().add(BorderLayout.SOUTH, b);
         frame.setSize(200,100);
         frame.setVisible(true);
     }
 
-    class BListener extends ActionListener {
+    class BListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if (b.getText().equals("A")) {
                 b.setText("B");
