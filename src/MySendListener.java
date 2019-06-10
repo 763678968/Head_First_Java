@@ -1,6 +1,4 @@
-import java.awt.*;
 import javax.swing.*;
-import javax.sound.midi.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
@@ -8,6 +6,8 @@ import java.util.*;
 import java.awt.event.*;
 
 public class MySendListener implements ActionListener {
+
+    ArrayList<JCheckBox> checkboxList;
 
     public void actionPerformed(ActionEvent a) {
         boolean[] checkboxState = new boolean[256];
