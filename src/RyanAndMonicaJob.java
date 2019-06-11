@@ -41,7 +41,7 @@ public class RyanAndMonicaJob implements Runnable {
             } catch(InterruptedException ex) {ex.printStackTrace();}
             System.out.println(Thread.currentThread().getName() + " woke up.");
             account.withdraw(amount);
-            System.out.println(Thread.currentThread().getName() + " completes the withdrawl");
+            System.out.println(Thread.currentThread().getName() + " completes the withdrawal");
         }
         else {
             System.out.println("Sorry, not enough for " + Thread.currentThread().getName());
