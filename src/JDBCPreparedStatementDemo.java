@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.Scanner;
 
 public class JDBCPreparedStatementDemo {
     private static final String URL = "jdbc:mysql://localhost:3306/student";
@@ -65,21 +66,38 @@ public class JDBCPreparedStatementDemo {
             // b.与数据库建立连接
             connection = DriverManager.getConnection(URL, USERNAME, PWD);
             // c.发送sql，执行（增删改、查）
+            Scanner input = new Scanner(System.in);
+            System.out.println("请输入用户名：");
+            String name = input.nextLine();
+            System.out.println("请输入密码：");
+            String pwd = input.nextLine();
 
-            String sql = "select * from student where stuname like ? ";
+//            String sql = "select * from student where stuname like ? ";
+            String sql = "select count(*) from login where uname = ? and upwd = ?";
             pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, "%x%");
+            pstmt.setString(1, name);
+            pstmt.setString(2, pwd);
 
             //String sql = "select * from student where stuname like '%x%'";
+
             // 执行SQL(增删改executeUpdate()，查询executeQuery())
             rs = pstmt.executeQuery(); // 返回值表示增删改几条数据
             // d.处理结果
-            while (rs.next()) {
-                int sno = rs.getInt("stuno");
-                String sname = rs.getString("stuname");
-//                int sno = rs.getInt(1); // 下标：从1开始计数
-//                String sname = rs.getString(2);
-                System.out.println(sno + "--" + sname);
+//            while (rs.next()) {
+//                int sno = rs.getInt("stuno");
+//                String sname = rs.getString("stuname");
+////                int sno = rs.getInt(1); // 下标：从1开始计数
+////                String sname = rs.getString(2);
+//                System.out.println(sno + "--" + sname);
+//            }
+            int count = -1;
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+            if (count > 0) {
+                System.out.println("登陆成功！");
+            } else {
+                System.out.println("登录失败！");
             }
 
         } catch (ClassNotFoundException e) {
