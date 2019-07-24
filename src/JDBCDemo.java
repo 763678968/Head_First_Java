@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.Scanner;
 
 public class JDBCDemo {
     private static final String URL = "jdbc:mysql://localhost:3306/student";
@@ -54,16 +55,27 @@ public class JDBCDemo {
             // c.发送sql，执行（增删改、查）
             stmt = connection.createStatement();
 //            String sql = "select stuno, stuname from student";
-            String sql = "select * from student where stuname like '%x%'";
+
+            Scanner input = new Scanner(System.in);
+            System.out.println("请输入用户名：");
+            String name = input.nextLine();
+            System.out.println("请输入密码：");
+            String pwd = input.nextLine();
+
+            String sql = "select count(*) from login where uname = '"+name+"' and upwd = '"+pwd+"'";
+
+//            String sql = "select * from student where stuname like '%x%'";
             // 执行SQL(增删改executeUpdate()，查询executeQuery())
             rs = stmt.executeQuery(sql); // 返回值表示增删改几条数据
             // d.处理结果
-            while (rs.next()) {
-                int sno = rs.getInt("stuno");
-                String sname = rs.getString("stuname");
-//                int sno = rs.getInt(1); // 下标：从1开始计数
-//                String sname = rs.getString(2);
-                System.out.println(sno + "--" + sname);
+            int count = -1;
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+            if (count > 0) {
+                System.out.println("登陆成功！");
+            } else {
+                System.out.println("登录失败！");
             }
 
         } catch (ClassNotFoundException e) {
