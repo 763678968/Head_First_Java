@@ -25,8 +25,27 @@ public class StringDemo2 {
         return count;
     }
 
+    public static void test05() {
+        String str = "helloworld";
+        int position = str.indexOf("llo");
+        System.out.println(position);
+
+        // 根据位置查找字符
+        char c = str.charAt(2);
+        System.out.println(c);
+
+        // replace
+        System.out.println(str);
+        str = str.replace('l', 'y');
+        System.out.println(str);
+
+        str = str.replace("he", "eh");
+        System.out.println(str);
+    }
+
     public static void main(String[] args) {
 //        System.out.println(test03("helloworld", "o"));
-        System.out.println(test04("helloworldllo", "llo"));
+//        System.out.println(test04("helloworldllo", "llo"));
+        test05();
     }
 }
