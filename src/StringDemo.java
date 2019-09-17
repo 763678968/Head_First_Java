@@ -22,6 +22,8 @@ public class StringDemo {
 
         boolean result2 = s1.contains("owo");
         System.out.println(result2);
+
+        testSubstring();
     }
 
     // 验证邮箱是否合法
@@ -31,5 +33,20 @@ public class StringDemo {
             return true;
         }
         return false;
+    }
+
+    // 验证电话是否合法
+    public static void testSubstring() {
+        // 029-88888888
+//        String phone = "18055555555";
+        String phone = "029-12345678";
+        if (phone.contains("-")) {
+            System.out.println("座机号码");
+            // phone.substring(start, end) : [start, end)
+            phone = phone.substring(2, 6);
+            System.out.println(phone);
+        } else {
+            System.out.println("手机号码");
+        }
     }
 }
