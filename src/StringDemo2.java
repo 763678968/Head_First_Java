@@ -43,9 +43,28 @@ public class StringDemo2 {
         System.out.println(str);
     }
 
+    public static void test06() {
+        StringBuffer sb = new StringBuffer("abc"); // String str = "abc";
+        sb.append("aaa");
+        System.out.println(sb);
+
+        String a = "hello";
+        StringBuffer sb2 = new StringBuffer(a);
+    }
+
+    public static void test07(String digital) {
+        StringBuffer sb = new StringBuffer(digital);
+        for (int i = digital.length()-3; i > 0; i = i-3) {
+            sb.insert(i, ",");
+        }
+        System.out.println(sb.toString());
+    }
+
     public static void main(String[] args) {
 //        System.out.println(test03("helloworld", "o"));
 //        System.out.println(test04("helloworldllo", "llo"));
-        test05();
+//        test05();
+//        test06();
+        test07("12345678");
     }
 }
