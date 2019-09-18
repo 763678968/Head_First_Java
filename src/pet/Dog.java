@@ -1,44 +1,43 @@
 package pet;
 
-public class Dog {
-    private String name;
-    private int health;
-    private int love;
+public class Dog extends Pet{
+
     private String strain;
+    private String other;
 
-    public String getName() {
-        return name;
+    public Dog(String strain, String other) {
+        System.out.println("2个参数的构造方法" + strain + other);
+        this.strain = strain;
+        this.other = other;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    public int getLove() {
-        return love;
-    }
-
-    public void setLove(int love) {
-        this.love = love;
-    }
-
-    public String getStrain() {
-        return strain;
-    }
-
-    public void setStrain(String strain) {
+    public Dog(String strain) {
+        this("a", "b");
+        System.out.println("1个参数的构造方法....");
         this.strain = strain;
     }
 
+    public Dog() {
+        super("a", 1, 2); // 调用父类无参构造
+//        this("a");
+        System.out.println("无参构造");
+    }
+
+    //    public void a() {
+//        System.out.println("子类 Dog...");
+//    }
+//
+//    public String getStrain() {
+//        return strain;
+//    }
+//
+//    public void setStrain(String strain) {
+//        this.strain = strain;
+//    }
+
     public void print() {
-        System.out.println(this.name + "\t" + this.health + "\t" + this.love + "\t" + this.strain);
+        System.out.println("print....");
+        System.out.println(getName() + "\t" + getHealth() + "\t" + getLove() + "\t" + this.strain + "\t" + this.other);
+//        a();
     }
 }
