@@ -1,10 +1,12 @@
 package reflect;
 
-public class Person implements MyInterface {
+public class Person implements MyInterface, MyInterface2 {
 
     private int id;
     private String name;
     private int age;
+
+    public String desc;
 
     public Person() {
     }
@@ -43,6 +45,10 @@ public class Person implements MyInterface {
         this.age = age;
     }
 
+    private void privateMethod() {
+        System.out.println("private method...");
+    }
+
     public static void staticMethod() {
         System.out.println("static method ....");
     }
@@ -50,5 +56,10 @@ public class Person implements MyInterface {
     @Override
     public void interfaceMethod() {
         System.out.println("interfaceMethod....");
+    }
+
+    @Override
+    public void interface2Method() {
+        System.out.println("interfaceMethod2....");
     }
 }
