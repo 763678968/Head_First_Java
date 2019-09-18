@@ -49,6 +49,10 @@ public class Person implements MyInterface, MyInterface2 {
         System.out.println("private method...");
     }
 
+    private void privateMethod2(String name) {
+        System.out.println("private method2..." + name);
+    }
+
     public static void staticMethod() {
         System.out.println("static method ....");
     }
