@@ -8,6 +8,10 @@ public class Person implements MyInterface, MyInterface2 {
 
     public String desc;
 
+    private Person(String name) {
+        this.name = name;
+    }
+
     public Person() {
     }
 
