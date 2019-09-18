@@ -1,3 +1,40 @@
+class Father {
+    public void eat() {
+        System.out.println("父类eat");
+    }
+
+    protected Father x1() {
+        Father f = new Father();
+        return f;
+    }
+
+    public void a(int num1, int num2) {
+
+    }
+
+}
+
+
+class Son extends Father {
+    @Override
+    public void eat() { // 方法重写
+        System.out.println("子类eat");
+    }
+
+    public void a() {
+
+    }
+
+    public void a(int num) {
+
+    }
+
+    protected Son x1() {
+        Son s = new Son();
+        return s;
+    }
+}
+
 class Math {
 
     public void add(int num1, int num2) {
@@ -19,4 +56,8 @@ class Math {
 }
 
 public class TestMath {
+    public static void main(String[] args) {
+        Son son = new Son();
+        son.eat();
+    }
 }
