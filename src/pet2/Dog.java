@@ -6,4 +6,8 @@ public class Dog extends Pet {
         System.out.println("吃狗粮...");
     }
 
+    public void playCaching() {
+        System.out.println("狗...抓盘子...");
+    }
+
 }

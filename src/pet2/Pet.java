@@ -1,9 +1,11 @@
 package pet2;
 
-public abstract class Pet {
+public class Pet {
     private String name;
 
-    public abstract void eat();
+    public void eat() {
+
+    }
 
     public String getName() {
         return name;
