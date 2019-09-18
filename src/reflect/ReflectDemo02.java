@@ -1,9 +1,13 @@
 package reflect;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Properties;
 
 public class ReflectDemo02 {
     // 获取对象的示例，并操作对象
@@ -79,11 +83,46 @@ public class ReflectDemo02 {
         System.out.println("instance3" + instance3);
     }
 
+    // 动态加载类名和方法
+    public static void demo04() throws IllegalAccessException, InstantiationException, IOException, NoSuchMethodException, InvocationTargetException {
+        Properties prop = new Properties();
+        prop.load(new FileReader("D:\\Work\\Exercise\\Java\\Head_First_Java\\src\\class.txt"));
 
+        String classname = prop.getProperty("classname");
+        String methodname = prop.getProperty("methodname");
 
-    public static void main(String[] args) throws InstantiationException, IllegalAccessException, NoSuchFieldException, NoSuchMethodException, InvocationTargetException {
+        // Class入口
+        Class<?> perClass = null;
+        try {
+            perClass = Class.forName(classname);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Method method = perClass.getMethod(methodname);
+        method.invoke(perClass.newInstance());
+    }
+
+    // 反射可以越过泛型检查
+    // 虽然可以通过反射访问private等访问修饰符不允许访问的属性/方法，也可以忽略掉泛型的约束，但实际开发不建议这样使用，因为可能造成程序的混乱。
+    public static void demo05() throws NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(123);
+        list.add(3);
+        list.add(2);
+//        list.add("zs");
+
+        Class<?> listClass = list.getClass();// 获取反射的入口对象
+        Method method = listClass.getMethod("add", Object.class);
+        method.invoke(list, "zs...");
+        System.out.println(list);
+    }
+
+    public static void main(String[] args) throws InstantiationException, IllegalAccessException, NoSuchFieldException, NoSuchMethodException, InvocationTargetException, IOException {
 //        demo01();
 //        demo02();
-        demo03();
+//        demo03();
+//        demo04();
+        demo05();
     }
 }
