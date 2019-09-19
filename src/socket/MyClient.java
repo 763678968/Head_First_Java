@@ -27,6 +27,7 @@ public class MyClient {
         while ((len = in.read(bs)) != -1) {
             fileOut.write(bs, 0, len);
         }
+        System.out.println("下载成功！");
 
 //        // 客户端向服务端作出反馈（向服务端发送消息）
 //        OutputStream out = socket.getOutputStream();
