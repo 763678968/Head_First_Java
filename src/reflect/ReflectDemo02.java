@@ -118,11 +118,24 @@ public class ReflectDemo02 {
         System.out.println(list);
     }
 
+    public static void demo06() throws NoSuchFieldException, IllegalAccessException {
+        Person per = new Person();
+        PropertyUtil.setProperty(per, "name", "zs");
+        PropertyUtil.setProperty(per, "age", 23);
+
+        Student stu = new Student();
+        PropertyUtil.setProperty(stu, "score", 98);
+
+        System.out.println(per.getName() + "," + per.getAge());
+        System.out.println(stu.getScore());
+    }
+
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, NoSuchFieldException, NoSuchMethodException, InvocationTargetException, IOException {
 //        demo01();
 //        demo02();
 //        demo03();
 //        demo04();
-        demo05();
+//        demo05();
+        demo06();
     }
 }
