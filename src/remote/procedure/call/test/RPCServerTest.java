@@ -9,7 +9,6 @@ public class RPCServerTest {
     public static void main(String[] args) {
         // 开启一个线程
         new Thread(new Runnable() {
-
             @Override
             public void run() {
                 // 服务中心
@@ -19,6 +18,5 @@ public class RPCServerTest {
                 server.start();
             }
         }).start();
-
     }
 }
