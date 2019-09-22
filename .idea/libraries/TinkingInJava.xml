@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="TinkingInJava">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Thinking_in_Java/lib/TinkingInJava.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
