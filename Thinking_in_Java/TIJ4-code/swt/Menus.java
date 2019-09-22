@@ -1,10 +1,8 @@
 //: swt/Menus.java
 // Fun with menus.
-import swt.util.*;
 import org.eclipse.swt.*;
 import org.eclipse.swt.widgets.*;
-import java.util.*;
-import net.mindview.util.*;
+import swt.util.*;
 
 public class Menus implements SWTApplication {
   private static Shell shell;

@@ -3,8 +3,6 @@
 // {Requires: nu.xom.Node; You must install
 // the XOM library from http://www.xom.nu }
 import nu.xom.*;
-import java.io.*;
-import java.util.*;
 
 public class Person {
   private String first, last;

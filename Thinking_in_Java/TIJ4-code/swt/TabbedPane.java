@@ -1,12 +1,12 @@
 //: swt/TabbedPane.java
 // Placing SWT components in tabbed panes.
-import swt.util.*;
 import org.eclipse.swt.*;
-import org.eclipse.swt.widgets.*;
+import org.eclipse.swt.browser.*;
 import org.eclipse.swt.events.*;
 import org.eclipse.swt.graphics.*;
 import org.eclipse.swt.layout.*;
-import org.eclipse.swt.browser.*;
+import org.eclipse.swt.widgets.*;
+import swt.util.*;
 
 public class TabbedPane implements SWTApplication {
   private static TabFolder folder;

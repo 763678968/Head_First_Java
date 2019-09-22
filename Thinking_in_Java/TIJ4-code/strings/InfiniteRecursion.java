@@ -1,8 +1,6 @@
 //: strings/InfiniteRecursion.java
 // Accidental recursion.
 // {RunByHand}
-import java.util.*;
-
 public class InfiniteRecursion {
   public String toString() {
     return " InfiniteRecursion address: " + this + "\n";
