@@ -7,7 +7,7 @@ public class PasswordUtils {
     public boolean validatePassword(String password) {
         return (password.matches("\\w*\\d\\w*"));
     }
-    @UseCase(id = 48, description = "New passwords can't equal previously used ones")
+    @UseCase(id = 48)
     public String encryptPassword(String password) {
         return new StringBuilder(password).reverse().toString();
     }
