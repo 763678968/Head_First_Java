@@ -43,7 +43,7 @@
     <echo message="Build 'xml' succeeded"/>
   </target>
 
-  <target depends="Person" name="People">
+  <target depends="getclass.Person" name="People">
     <java
      classname="People"
      classpath="${java.class.path};${basedir};${basedir}/.."
@@ -52,9 +52,9 @@
      fork="true"/>
   </target>
 
-  <target name="Person">
+  <target name="getclass.Person">
     <java
-     classname="Person"
+     classname="getclass.Person"
      classpath="${java.class.path};${basedir};${basedir}/.."
      dir="../xml/"
      failonerror="true"
@@ -67,7 +67,7 @@
    name="run">
     <touch file="failures"/>
     <antcall target="People"/>
-    <antcall target="Person"/>
+    <antcall target="getclass.Person"/>
     <delete file="failures"/>
   </target>
 
