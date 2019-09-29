@@ -24,6 +24,22 @@ public class GenericTest {
              }
          */
 
+        /**
+         * 这才是一个真正的泛型方法。
+         * 首先在public与返回值之间的<T>必不可少，这表明这是一个泛型方法，并且声明了一个泛型T
+         * 这个T可以出现在这个泛型方法的任意位置
+         * 泛型的数量也可以为任意多个
+         *    如：public <T,K> K showKeyName(Generic<T> container){
+         *        ...
+         *        }
+         */
+        public <T> T showKeyName(Generic<T> container){
+            System.out.println("container key :" + container.getKey());
+            T test = container.getKey();
+            return test;
+        }
+
+
 
     }
 }
