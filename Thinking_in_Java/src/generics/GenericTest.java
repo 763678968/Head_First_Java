@@ -16,5 +16,14 @@ public class GenericTest {
             return key;
         }
 
+        /**
+         * 这个方法显然是有问题的，在编译时会给我们提示这样的错误信息"cannot reslove symbol E"
+         * 因为在类的声明中并未声明泛型E，所以在使用E做形参和返回值类型时，编译器会无法识别。
+             public E setKey(E key){
+             this.key = key
+             }
+         */
+
+
     }
 }
