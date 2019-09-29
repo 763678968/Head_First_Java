@@ -1,10 +1,8 @@
 package generics;
 
-import org.apache.commons.logging.Log;
-
 public class GenericTest {
     // 这个类是泛型类
-    public class Generic<T> {
+    public static class Generic<T> {
         private T key;
 
         public Generic(T key) {
@@ -52,7 +50,29 @@ public class GenericTest {
             System.out.println("泛型测试" + "key value is " + obj.getKey());
         }
 
+        /**
+         * 这个方法是有问题的，编译器会为我们提示错误信息："UnKnown class 'E' "
+         * 虽然我们声明了<T>,也表明了这是一个可以处理泛型的类型的泛型方法。
+         * 但是只声明了泛型类型T，并未声明泛型类型E，因此编译器并不知道该如何处理E这个类型。
+         public <T> T showKeyName(Generic<E> container){
+         ...
+         }
+         */
+
+        /**
+         * 这个方法也是有问题的，编译器会为我们提示错误信息："UnKnown class 'T' "
+         * 对于编译器来说T这个类型并未项目中声明过，因此编译也不知道该如何编译这个类。
+         * 所以这也不是一个正确的泛型方法声明。
+         public void showkey(T genericObj){
+
+         }
+         */
 
 
+    }
+
+    public static void main(String[] args) {
+        Generic generic = new Generic<>(0);
+        generic.showKeyName(generic);
     }
 }
