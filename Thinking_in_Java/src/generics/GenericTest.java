@@ -1,5 +1,7 @@
 package generics;
 
+import org.apache.commons.logging.Log;
+
 public class GenericTest {
     // 这个类是泛型类
     public class Generic<T> {
@@ -37,6 +39,17 @@ public class GenericTest {
             System.out.println("container key :" + container.getKey());
             T test = container.getKey();
             return test;
+        }
+
+        //这也不是一个泛型方法，这就是一个普通的方法，只是使用了Generic<Number>这个泛型类做形参而已。
+        public void showKeyValue1(Generic<Number> obj){
+            System.out.println("泛型测试" + "key value is " + obj.getKey());
+        }
+
+        //这也不是一个泛型方法，这也是一个普通的方法，只不过使用了泛型通配符?
+        //同时这也印证了泛型通配符章节所描述的，?是一种类型实参，可以看做为Number等所有类的父类
+        public void showKeyValue2(Generic<?> obj){
+            System.out.println("泛型测试" + "key value is " + obj.getKey());
         }
 
 
