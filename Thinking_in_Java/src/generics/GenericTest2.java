@@ -6,6 +6,12 @@ public class GenericTest2 {
         System.out.println("泛型测试" + "key value is " + obj.getKey());
     }
 
+    public <T extends Number> T showKeyName(Generic<T> container) {
+        System.out.println("container key:" + container.getKey());
+        T test = container.getKey();
+        return test;
+    }
+
     public static void main(String[] args) {
 
         Generic<String> generic1 = new Generic<String>("11111");
@@ -15,6 +21,6 @@ public class GenericTest2 {
 
         GenericTest2 gt2 = new GenericTest2();
         // 这一行代码编译器会提示错误，因为String类型并不是Number类型的子类
-        // gt2.showKeyValue1(generic1);
+         gt2.showKeyValue1(generic2);
     }
 }
